@@ -20,6 +20,7 @@ Trains a custom CNN on CIFAR-10, exports to ONNX for optimized inference, and se
 ```
 
 ## Architecture
+
 Input (3 × 32 × 32)
 ↓
 Conv Block 1: Conv2d(3→32) → BatchNorm → ReLU → Conv2d(32→32) → BatchNorm → ReLU → MaxPool → Dropout
@@ -34,12 +35,15 @@ Classifier: Linear(4096→512) → ReLU → Dropout → Linear(512→10)
 ---
 ```
 ## Pipeline
+
 train.py → cifar10_cnn.pth → export_onnx.py → cifar10.onnx → app/main.py → /predict
 (PyTorch)    (checkpoint)     (ONNX export)    (optimized)    (FastAPI)    (REST API)
 
 ```
 ---
 ```
+## Project Structure
+
 SwiftInfer/
 ├── models/
 │   ├── cifar10_cnn.pth     # PyTorch checkpoint
