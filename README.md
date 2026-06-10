@@ -17,6 +17,7 @@ Trains a custom CNN on CIFAR-10, exports to ONNX for optimized inference, and se
 | Speedup | **3.94× faster** |
 
 ---
+```
 
 ## Architecture
 Input (3 × 32 × 32)
@@ -29,26 +30,29 @@ Classifier: Linear(4096→512) → ReLU → Dropout → Linear(512→10)
 ↓
 10 Class Scores
 
+```
 ---
+```
 ## Pipeline
 train.py → cifar10_cnn.pth → export_onnx.py → cifar10.onnx → app/main.py → /predict
-(PyTorch)      (checkpoint)     (ONNX export)    (optimized)    (FastAPI)    (REST API)
+(PyTorch)    (checkpoint)     (ONNX export)    (optimized)    (FastAPI)    (REST API)
 
+```
 ---
-
-## Project Structure
+```
 SwiftInfer/
 ├── models/
-│   ├── cifar10_cnn.pth       # PyTorch checkpoint
-│   └── cifar10.onnx          # Exported ONNX model
-├── data/                     # CIFAR-10 dataset (auto-downloaded)
+│   ├── cifar10_cnn.pth     # PyTorch checkpoint
+│   └── cifar10.onnx        # Exported ONNX model
+├── data/                   # CIFAR-10 dataset (auto-downloaded)
 ├── app/
-│   └── main.py               # FastAPI inference server
-├── train.py                  # CNN training script
-├── export_onnx.py            # ONNX export + benchmark
-├── test_predict.py           # API test script
-├── requirements.txt          # Dependencies
+│   └── main.py             # FastAPI inference server
+├── train.py                # CNN training script
+├── export_onnx.py          # ONNX export + benchmark
+├── test_predict.py         # API test script
+├── requirements.txt        # Dependencies
 └── README.md
+```
 
 ---
 
@@ -65,7 +69,7 @@ SwiftInfer/
 
 ```bash
 # clone the repo
-git clone https://github.com/YOUR_USERNAME/SwiftInfer.git
+git clone https://github.com/Ananya-katiyar/SwiftInfer.git
 cd SwiftInfer
 
 # create virtual environment
